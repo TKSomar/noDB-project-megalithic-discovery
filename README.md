@@ -34,5 +34,5 @@
 
 #### Wireframe
 
-<img src="./wireframe/component-tree.png" />
+<img src="./wireframe/component-tree.PNG" />
 <img src="./wireframe/mockup.png" />
