@@ -1,68 +1,38 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Megalithic Discovery App
+## NoDB Project for DevMountain
 
-## Available Scripts
+### Application Concept and Wireframe
+#### Concept
+- This is an app for viewing and discovering megalithic sites.
+- Possibly utilize Google's Map API to show all sites found across the globe.
+- Full CRUD
+    - GET: get all megalithic sites
+    - POST: Saved list item will be posted to saved list array
+    - PUT: Edit details and name
+    - DELETE: remove a site from the saved list array
 
-In the project directory, you can run:
+#### Functionality
+- Header at the top of the page
+- When the app loads, display a list of megalithic site cards with name and details
+- Select from Edit, Save, and Delete on each list item
+- Saved list array will keep track of user's saved items
+- Display the saved list array on the side with the ability to remove it
 
-### `npm start`
+#### Endpoints
+- GET - fetch list of megalithic sites from Megaliths.js data
+- POST - push saved item to saved list array
+- GET - fetch and render our saved list
+- PUT - edit name/details/notes
+- DELETE - remove a site from the master list and saved list
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+#### Component Architecture
+- App.js (stateful: hold list of all megalithic sites)
+    - Header.js (functional)
+    - Search.js (stateful: handleChange for input in search box and render that one site)
+    - SavedList.js (stateful: hold the saved list array of megalithic sites)
+        - Megaliths.js (stateful: this.state.name, this.state.details, this.state.editing)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+#### Wireframe
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+<img src="./wireframe/component-tree.png" />
+<img src="./wireframe/mockup.png" />
