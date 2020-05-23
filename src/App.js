@@ -1,26 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import List from './Components/List';
+import Header from './Components/Header';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+import data from './data/Megaliths.json';
+
+import axios from 'axios';
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+export default class App extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      megaliths: {data},
+      megalithsToDisplay: {}
+    }
+  }
+
+  getAllMegaliths() {
+    axios.get('http://localhost:4020/api/megaliths').then( results => {
+      toast.success('Successfully showing all megaliths.');
+      this.setState({ 'megalithsToDisplay': results.data });
+    }).catch( () => toast.error('Failed to fetch all megaliths.') );
+  }
+
+  render() {
+    console.log(this.state.apiResponse)
+    return <div className="App">
+      <Header />
+      <List />
     </div>
-  );
+  }
 }
-
-export default App;
