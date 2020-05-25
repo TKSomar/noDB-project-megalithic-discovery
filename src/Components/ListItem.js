@@ -1,12 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-function ListItem(props) {
+export default function ListItem(props) {
     return <div className="List-Item">
-        <h1 className="list-title">{props.megalith.name}</h1>
-        <img className="list-image" alt="Megalithic site" src={props.megalith.image} height="250px" width="369px" />
-        <h2 className="list-details-title">Details</h2>
-        <p className="list-details">{props.megalith.details}</p>
-    </div>
+            <h1 className="list-name">{props.megalith.name}</h1>
+            <img src={props.megalith.image} alt="Megalithic site" height="300px" width="470px" />
+                <div className="details-container">
+                    <p className="list-details">{props.megalith.details}</p>
+                </div>
+        </div>
 }
-
-export default ListItem;

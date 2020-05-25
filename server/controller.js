@@ -16,9 +16,9 @@ module.exports = {
         }
     },
 
-    getMegalithById: (req, res) => {
-        const { megalith_id } = req.params
-        const megalith = megaliths.find((element) => element.id === +megalith_id)
+    getMegalithByName: (req, res) => {
+        const { megalith_name } = req.params
+        const megalith = megaliths.find((element) => element.name === +megalith_name)
 
         if (megalith) {
             res.status(200).send(megalith)
@@ -37,9 +37,9 @@ module.exports = {
         id++
     },
 
-    editMegalith: (req, res) => {
+    editMegalithName: (req, res) => {
         const {megalith_id} = req.params
-        const {name, details, image} = req.body
+        const {newName} = req.body
         
         const index = megaliths.findIndex((elem) => elem.id === +megalith_id)
 
@@ -47,14 +47,7 @@ module.exports = {
             return res.status(404).send('Megalith not found.')
         }
 
-        const updatedMegalith = {
-            id: +megalith_id,
-            name: name || megaliths[index].name,
-            details: details || megaliths[index].details,
-            image: image || megaliths[index].image
-        }
-
-        megaliths[index] = updatedMegalith
+        megaliths[index].name = newName
 
         res.status(200).send(megaliths)
     },
