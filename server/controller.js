@@ -51,6 +51,20 @@ module.exports = {
 
         res.status(200).send(megaliths)
     },
+    editMegalithDetails: (req, res) => {
+        const {megalith_id} = req.params
+        const {newDetails} = req.body
+
+        const index = megaliths.findIndex((elem) => elem.id === +megalith_id)
+
+        if (index === -1){
+            return res.status(404).send('Megalith not found.')
+        }
+
+        megaliths[index].details = newDetails
+
+        res.status(200).send(megaliths)
+    },
     deleteMegalith: (req, res) => {
         const {megalith_id} = req.params
         const index = megaliths.findIndex(elem => elem.id === +megalith_id)

@@ -26,7 +26,6 @@ export default class App extends Component {
     this.addMegalith = this.addMegalith.bind(this);
     this.searchMegalithByName = this.searchMegalithByName.bind(this);
     this.toggleEdit = this.toggleEdit.bind(this);
-    this.handleSaveName = this.handleSaveName.bind(this);
   }
 
   componentDidMount() {
@@ -84,10 +83,6 @@ export default class App extends Component {
     });
   }
 
-  handleSaveName(id, newName) {
-    this.saveName(id, newName)
-  }
-
   handleChange(e) {
     this.setState({
       userInput: e.target.value,
@@ -99,11 +94,11 @@ export default class App extends Component {
           return (
             <div className="Full-List-Item">
               <ListItem key={megalith.id} megalith={megalith} saveName={this.saveName} />
-              <button className="delete-btn" onClick={() => this.deleteMegalith(megalith.id)}>Delete <i class="fas fa-trash-alt"></i></button>
-              <input type="text" onChange={(e) => {this.handleChange(e)}} placeholder='New name here' />
+              <button className="delete-btn" onClick={() => this.deleteMegalith(megalith.id)}>Delete <i className="fas fa-trash-alt"></i></button>
+              <input type="text" onChange={(e) => {this.handleChange(e)}} placeholder='New name here' autoComplete="off" />
               <button className="edit-btn" onClick={() => {
                 this.saveName(megalith.id, this.state.userInput)
-              }}>Save</button>
+              }}>Save <i className="far fa-save"></i></button>
             </div>
           )
       })

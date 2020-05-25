@@ -17,6 +17,7 @@ app.get('/api/megaliths', ctrl.getAllMegaliths);
 app.get('/api/megaliths/:megalith_name', ctrl.getMegalithByName);
 app.post('/api/megaliths/', ctrl.createMegalith);
 app.put('/api/megaliths/:megalith_id', ctrl.editMegalithName);
+app.put('/api/megaliths/:megalith_id', ctrl.editMegalithDetails);
 app.delete('/api/megaliths/:megalith_id', ctrl.deleteMegalith);
 
 app.listen(SERVER_PORT, () =>

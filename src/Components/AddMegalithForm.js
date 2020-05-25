@@ -24,10 +24,10 @@ export default class AddMegalithForm extends Component {
         const {name, details, image} = this.state
         return(
             <div className="Form">
-                <input name='name' value={name} onChange={e => this.handleChange(e)} placeholder='name'/>
-                <input name='details' value={details} onChange={e => this.handleChange(e)} placeholder='details'/>
-                <input name='image' value={image} onChange={e => this.handleChange(e)} placeholder='image URL'/>
-                <button className="btn-add" onClick={this.addNewMegalith}>Add <i class="fas fa-plus-circle"></i></button>
+                <input name='name' value={name} onChange={e => this.handleChange(e)} placeholder='name' autoComplete="off"/>
+                <input name='details' value={details} onChange={e => this.handleChange(e)} placeholder='details' autoComplete="off"/>
+                <input name='image' value={image} onChange={e => this.handleChange(e)} placeholder='image URL' autoComplete="off"/>
+                <button className="btn-add" onClick={this.addNewMegalith}>Add <i className="fas fa-plus-circle"></i></button>
             </div>
         )
     }
